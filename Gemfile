@@ -8,6 +8,7 @@ gem 'faker'
 gem 'google-api-client'
 gem 'google-cloud-vision'
 gem 'httparty'
+gem "google-cloud-translate-v2"
 gem 'deepl-rb', require: 'deepl'
 gem "rails_admin", "3.0"
 
