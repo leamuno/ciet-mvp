@@ -1,0 +1,124 @@
+.index-container {
+  padding-bottom: 40px;
+}
+
+.index-container h2 {
+  margin-top: 10%;
+  margin-bottom: 30px;
+}
+
+.cards-container {
+  width: 100vw;
+  margin: 0rem;
+}
+
+#image-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-cards {
+  border-radius: 15px;
+  margin: 10px 10px;
+  // height: 30vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+.true-food-history-item {
+  @extend .index-cards;
+  img {
+    border-bottom: $green 5px solid;
+  }
+}
+
+.false-food-history-item {
+  @extend .index-cards;
+  img {
+    border-bottom: $orange 5px solid;
+  }
+}
+
+.can-be-food-history-item {
+  @extend .index-cards;
+  img {
+    border-bottom: $yellow 5px solid;
+  }
+}
+
+.thumbnail {
+  margin: 0px !important;
+  img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0px;
+  // border-bottom: $light-gray 5px solid;
+  justify-content: center;
+  }
+}
+
+.index-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+  max-width: 200px;
+  margin-right: 10px;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  img {
+    height: auto;
+    width: 50px;
+  }
+}
+
+.green-border-card {
+  border: $green 15px solid;
+  border-radius: 15px;
+  height: 290px;
+  margin: 10px;
+  position: relative;
+}
+
+.red-border-card {
+  border: $orange 15px solid;
+  border-radius: 15px;
+  height: 290px;
+  margin: 10px;
+  position: relative;
+}
+
+.yellow-border-card {
+  border: $yellow 15px solid;
+  border-radius: 15px;
+  height: 290px;
+  margin: 10px;
+  position: relative;
+}
+
+.infos-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  margin: 0px;
+  background-color: $white;
+}
+
+.food-title {
+  height: 100%;
+  align-items: center;
+  margin-top: 35px;
+  margin-left: 10px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
