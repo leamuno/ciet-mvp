@@ -112,22 +112,21 @@
   <div class="bar-container ingredient-show-container unknown-background">
     <h2>Unknown</h2>
     <% @unknown_ingredients.each do |ingredient| %>
-      <% translation = DeepL.translate ingredient, "JA", "EN" %>
       <div class="wide-bar-card gray-background" data-controller="extended-infos" data-extended-infos-target="shover">
         <div class="toggle-grid" data-extended-infos-target="shrinker">
-          <p class="text-wrap d-none" data-extended-infos-target="showup"><strong><%= translation.text.capitalize %></strong></p>
-          <% if translation.text.length > 9 %>
-            <p class="text-wrap" data-extended-infos-target="hider"><strong><%= translation.text[0..8] %>...</strong></p>
+          <p class="text-wrap d-none" data-extended-infos-target="showup"><strong><%= ingredient[1].capitalize %></strong></p>
+          <% if ingredient[1].length > 9 %>
+            <p class="text-wrap" data-extended-infos-target="hider"><strong><%= [ingredient[1]][0..8] %>...</strong></p>
           <% else %>
-            <p class="text-wrap" data-extended-infos-target="hider"><strong><%= translation.text.capitalize %></strong></p>
+            <p class="text-wrap" data-extended-infos-target="hider"><strong><%= ingredient[1].capitalize %></strong></p>
           <% end %>
           <button class="btn toggler"  data-action="click->extended-infos#revealInfos">&gt;</button>
         </div>
         <div class="d-none extended-infos" data-extended-infos-target="info">
-          <p>Sorry, we couldn't find <%= ingredient %></p>
-          <p><strong>Here is what we think it is:</strong> <%= Gpt.describe_unknown_ingredient(translation) %></p>
+          <p>Sorry, we couldn't find <%= ingredient[0] %></p>
+          <p><strong>Here is what we think it is:</strong> <%= ingredient[2] %></p>
           <div class="extended-infos-grid">
-            <%= link_to "Google it!", "http://www.google.com/search?q=#{ingredient}", target: '_blank', class: "btn btn-primary" %>
+            <%= link_to "Google it!", "http://www.google.com/search?q=#{ingredient[0]}", target: '_blank', class: "btn btn-primary" %>
             <%= link_to "Report", "", class: "btn btn-primary" %>
           </div>
         </div>

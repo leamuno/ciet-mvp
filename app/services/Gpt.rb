@@ -95,23 +95,11 @@ class Gpt
 
   def self.describe_unknown_ingredient(ingredient)
     prompt_pref = ALL_PREFERENCES
-    prompt = ""
-    if (prompt_pref.count > 1)
-      prompt_pref[-1] = "and #{prompt_pref[-1]}"
-      prompt_pref = prompt_pref.join(", ")
-      prompt = <<~PROMPT
-      "Create a short 1 to 2 sentence description about how #{ingredient.text} is produced, and how that potentially makes it not #{prompt_pref}."
-      PROMPT
-    elsif (prompt_pref.count == 1)
-      prompt_pref = prompt_pref.join
-      prompt = <<~PROMPT
-      "Create a short 1 to 2 sentence description about how #{ingredient.text} is produced, and how that potentially makes it not #{prompt_pref}."
-      PROMPT
-    else
-      prompt = <<~PROMPT
-      "Create a short 1 to 2 sentence description about how #{ingredient.text} is produced."
-      PROMPT
-    end
+    prompt_pref[-1] = "and #{prompt_pref[-1]}"
+    prompt_pref = prompt_pref.join(", ")
+    prompt = <<~PROMPT
+    "Create a short 1 to 2 sentence description about how #{ingredient} is produced, and how that potentially makes it not #{prompt_pref}."
+    PROMPT
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
     model: "gpt-3.5-turbo",

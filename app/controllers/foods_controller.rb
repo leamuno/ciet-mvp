@@ -80,6 +80,14 @@ class FoodsController < ApplicationController
         @true_ingredients << ingredient
       end
     end
+    unless @unknown_ingredients.empty?
+      @unknown_ingredients.each_with_index do |ingredient, index|
+        translation = DeepL.translate ingredient, "JA", "EN"
+        translation = translation.text
+        description = Gpt.describe_unknown_ingredient(translation)
+        @unknown_ingredients[index] = [ingredient, translation, description]
+      end
+    end
   end
 
   def classify_ingredients_individually
