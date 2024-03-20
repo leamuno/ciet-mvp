@@ -1,2 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
 It is a web app that is meant to be used on your phone. It uses the Google Vision API to extract text from an image of a Japanese food label. Then, it takes the extracted ingredients and compares them to the database to determine if the food fits the dietary restrictions.
